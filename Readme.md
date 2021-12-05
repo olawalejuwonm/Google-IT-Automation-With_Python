@@ -6,3 +6,6 @@ NameError in python occur as uninitialized variable
 Python                                          Javascript
 type("a")                                        typeof "a"
 
+nano generate_report.py
+chmod +x generate_report.py
+./generate_report.py
