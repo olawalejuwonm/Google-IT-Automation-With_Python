@@ -2,7 +2,7 @@
 
 # import sys
 # import csv
-# import os
+import os
 # def populate_dictionary(filename): 
 #   """Populate a dictionary with name/email pairs for easy lookup."""
 #   email_dict = {}
@@ -48,7 +48,9 @@ def find_email(argv):
   try:
     fullname = str(argv[1] + " " + argv[2])
     # Preprocess the data
-    email_dict = populate_dictionary('/home/student-03-a231d5d20f5b/data/user_emails.csv')
+    # email_dict = populate_dictionary('/home/student-03-a231d5d20f5b/data/user_emails.csv')
+    email_dict = populate_dictionary(os.path.expanduser('~') + '/Documents/GitHub/Google-IT-Python/week 5/data/user_emails.csv')
+
      # If email exists, print it
     if email_dict.get(fullname.lower()):
       return email_dict.get(fullname.lower())
