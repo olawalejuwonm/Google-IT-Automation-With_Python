@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import PIL
 from PIL import Image
 import os
@@ -34,9 +35,10 @@ for filename in os.listdir("images"):
         new_im = new_im.resize((128,128))
         # save the image to a new folder in .jpeg format
         #create /opt/icons/ folder if it doesn't exist
-        if not os.path.exists("opt/icons/"):
-            os.makedirs("opt/icons/")
-        new_im.convert("RGB").save("opt/icons/" + filename, "jpeg")
+        # remove the / from the filename for windows
+        if not os.path.exists("/opt/icons/"):
+            os.makedirs("/opt/icons/")
+        new_im.convert("RGB").save("/opt/icons/" + filename, "jpeg")
         # make sure to save the updated images in the folder: /opt/icons/
     # catch any errors and print the error message
     except Exception as e:
