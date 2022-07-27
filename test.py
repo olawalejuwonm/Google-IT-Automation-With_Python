@@ -16,8 +16,11 @@ import os
 #  make sure to save the updated images in the folder: /opt/icons/
 
 # iterate through each file in the images folder
-# for filename in os.listdir("images"):
-#     #check if the file ends in .tt
+for filename in os.listdir("images"):
+    #change the file format to jpeg
+    if not filename.endswith(".jpeg"):
+        os.rename("images/" + filename, "images/" + filename + ".jpeg")
+
 
 for filename in os.listdir("images"):
     # change file format to .ttif
@@ -31,10 +34,9 @@ for filename in os.listdir("images"):
         new_im = new_im.resize((128,128))
         # save the image to a new folder in .jpeg format
         #create /opt/icons/ folder if it doesn't exist
-        print(os.path.exists("opt/icons/"))
         if not os.path.exists("opt/icons/"):
-            os.makedirs("/opt/icons/")
-        # new_im.convert("RGB").save("/opt/icons/" + filename.replace(".ttif", ".jpeg"), "jpeg")
+            os.makedirs("opt/icons/")
+        new_im.convert("RGB").save("opt/icons/" + filename, "jpeg")
         # make sure to save the updated images in the folder: /opt/icons/
     # catch any errors and print the error message
     except Exception as e:
