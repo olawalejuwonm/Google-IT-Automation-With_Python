@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import email
-import report
+import emails
+import reports as report
 from email import message
 import json
 import locale
@@ -95,8 +95,8 @@ def main(argv):
     # Subject line: Sales summary for last month
     # E-mail Body: The same summary from the PDF, but using \n between the lines
     # Attachment: Attach the PDF path i.e. generated in the previous step
-  message = email.generate("automation@example.com", "juwon@example.com", "Sales summary for last month", "\n".join(summary), "/tmp/cars.pdf")
-  email.send(message)
+  message = emails.generate("automation@example.com", "student-03-1efd27eb3607@example.com", "Sales summary for last month", "\n".join(summary), "/tmp/cars.pdf")
+  emails.send(message)
 
 
 
